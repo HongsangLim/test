@@ -1,0 +1,48 @@
+
+<meta charset="utf-8">
+
+<style type="text/css">
+	*{margin:0px auto; text-align: center;}
+	#wrap{width: 1000px; height: 600px; _border: solid 2px #333;}
+		#title_box{float: left; width: 100%; padding-top: 40px; padding-bottom: 40px; font-size: 40px; font-family: "맑은 고딕"; font-weight: bold; color: #333}
+		#image_box{float: left; width: 660px;}
+			#image{float: left; display: none;}
+			#myCanvas{float: left; margin-left: 20px; margin-top: 80px; border: solid 1px #ccc;}
+		#info_box{float: right; width: 340px;}
+			#file{float: left; margin-top: 80px; font-size: 15px; background: none; border-radius: 5px;}
+			#date{float: left; margin-top: 20px; font-size: 15px; background: none; border-radius: 5px;}
+</style>
+
+<div id="wrap">
+	<div id="title_box">
+		Heat Cycle Test Graph Editor
+	</div>
+
+	<div id="image_box">
+		<img id='image' src='' alt='image'>
+		<canvas id="myCanvas" width="400" height="300">
+			Your browser does not support the HTML5 canvas tag.
+		</canvas>
+	</div>
+	<div id="info_box">
+		<input id="file" type="file" name="file">
+		<input id="date" type="date" name="date" placeholder="2017.09.26">
+	</div>
+</div>
+
+<script src="jquery-3.2.1.min.js"></script>
+
+<script>
+	$(function(){
+		$("#file").change(function(){
+			hidden_filename = $("#file").val();
+			$("#image").attr("src",""+hidden_filename+"");
+
+			var canvas = document.getElementsByTagName("canvas")[0];
+		    var ctx = canvas.getContext("2d");
+		    var img = document.getElementById("image");
+		    ctx.drawImage(img, 0, 0);
+		});
+	});
+	
+</script>
