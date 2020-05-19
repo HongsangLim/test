@@ -1,0 +1,2 @@
+# amor-fati
+Fate Love
